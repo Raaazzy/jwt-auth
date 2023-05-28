@@ -1,7 +1,5 @@
 package com.example.jwtauth.pojo;
 
-import com.example.jwtauth.models.Role;
-
 import java.util.List;
 
 public class JwtResponse {

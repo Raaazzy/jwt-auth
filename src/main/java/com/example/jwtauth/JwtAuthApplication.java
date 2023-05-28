@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JwtAuthApplication {
 
 	public static void main(String[] args) {
+		// Запускаем нашу машину
 		SpringApplication.run(JwtAuthApplication.class, args);
 	}
 

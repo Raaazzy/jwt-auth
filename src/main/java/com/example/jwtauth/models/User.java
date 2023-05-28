@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+// Модель пользователя
 @Entity
 @Table(name = "users",
         uniqueConstraints = {
@@ -11,6 +12,7 @@ import java.util.Set;
                 @UniqueConstraint(columnNames = "email")
         })
 public class User {
+    // Id пользователя генерируется автоматически
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,6 +21,7 @@ public class User {
     private String email;
     private String password;
 
+    // Роли у пользователя имеют отношение many to many
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
         joinColumns = @JoinColumn(name = "user_id"),

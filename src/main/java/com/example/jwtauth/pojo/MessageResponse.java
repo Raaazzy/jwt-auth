@@ -1,5 +1,6 @@
 package com.example.jwtauth.pojo;
 
+// Сообщение ответа
 public class MessageResponse {
     private String message;
 

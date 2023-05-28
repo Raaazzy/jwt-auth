@@ -1,5 +1,7 @@
 package com.example.jwtauth.pojo;
 
+
+// информация об ответе авторизации
 public class LoginRequest {
     private String username;
     private String password;

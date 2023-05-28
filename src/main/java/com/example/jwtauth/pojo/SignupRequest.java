@@ -1,9 +1,8 @@
 package com.example.jwtauth.pojo;
 
-import com.example.jwtauth.models.ERole;
-
 import java.util.Set;
 
+// информация об ответе регистрации
 public class SignupRequest {
     private String username;
     private String email;

@@ -1,12 +1,11 @@
 package com.example.jwtauth.pojo;
 
-import com.example.jwtauth.models.ERole;
 import com.example.jwtauth.models.Role;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+// информация об ответе о пользователе
 public class InfoResponse {
     private String username;
     private String email;

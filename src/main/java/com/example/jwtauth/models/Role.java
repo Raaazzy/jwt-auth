@@ -2,23 +2,25 @@ package com.example.jwtauth.models;
 
 import javax.persistence.*;
 
+// Модель роли
 @Entity
 @Table(name = "roles")
 public class Role {
+    // Id пользователя генерируется автоматически
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Role() {
-    }
+    // Название роли
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
+    private ERole name;
+
+    public Role() {}
 
     public Role(ERole name) {
         this.name = name;
     }
-
-    @Enumerated(EnumType.STRING)
-    @Column(length = 20)
-    private ERole name;
 
     public Long getId() {
         return id;

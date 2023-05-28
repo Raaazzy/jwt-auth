@@ -16,7 +16,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -41,11 +40,9 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
-    /**
-     * Метод для авторизации пользователя
-     * @param loginRequest данные для входа
-     * @return в случае успеха - токен, информация о пользователе, иначе - инфо об ошибке
-     */
+     // Метод для авторизации пользователя
+     // @param loginRequest данные для входа
+     // @return в случае успеха - токен, информация о пользователе, иначе - инфо об ошибке
     @PostMapping("/signin")
     public ResponseEntity<?> authUser(@RequestBody LoginRequest loginRequest) {
         Authentication authentication = authenticationManager
@@ -69,11 +66,9 @@ public class AuthController {
                 roles));
     }
 
-    /**
-     * Метод для регистрации пользователя
-     * @param signupRequest данные для регистрации
-     * @return Сообщение об успешной регистрации/инфо об ошибке
-     */
+     // Метод для регистрации пользователя
+     // @param signupRequest данные для регистрации
+     // @return Сообщение об успешной регистрации/инфо об ошибке
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@RequestBody SignupRequest signupRequest) {
         if (signupRequest.getEmail() == null) {

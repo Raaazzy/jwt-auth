@@ -7,7 +7,6 @@ import com.example.jwtauth.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,25 +15,22 @@ import org.springframework.web.bind.annotation.*;
 public class TestController {
     @Autowired
     UserRepository userRepository;
+
     // Если пользователь не получает доступа к методу,
     // то ему будет выдан соответсвующий ответ в каждом из методов
-    /**
-     * ответ на этот запрос получит кто угодно, без токена
-     * @return сообщение
-     */
+    // ответ на этот запрос получит кто угодно, без токена
+    // @return сообщение
     @GetMapping("/all")
     public String getAll() {
         return "public API: welcome to our RESTaurant";
     }
 
-    /**
-     * Доступ получит только пользователь,
-     * передавший токен, подтверждающий, что он
-     * имеет роль администратора/шефа/покупателя получит в ответ информацию о пользователе с ником,
-     * который был передан
-     * @param username ник пользователя, о котором надо вывести информацию
-     * @return информация о пользователе с ником username
-     */
+     // Доступ получит только пользователь,
+     // передавший токен, подтверждающий, что он
+     // имеет роль администратора/шефа/покупателя получит в ответ
+     // информацию о пользователе с ником, который был передан
+     // @param username ник пользователя, о котором надо вывести информацию
+     // @return информация о пользователе с ником username
     @GetMapping("/info")
     @PreAuthorize("hasRole('ADMIN') or hasRole('CHEF') or hasRole('CUSTOMER')")
     public ResponseEntity<?> getInfoApi(@RequestBody String username) {
@@ -49,30 +45,24 @@ public class TestController {
         }
     }
 
-    /**
-     * Доступ имеют только user'ы с ролью CUSTOMER
-     * @return сообщение
-     */
+     // Доступ имеют только user'ы с ролью CUSTOMER
+     // @return сообщение
     @GetMapping("/customer")
     @PreAuthorize("hasRole('CUSTOMER')")
     public String getUserApi() {
         return "customer Api: imagine that you are actually able to buy something";
     }
 
-    /**
-     * Доступ имеют только user'ы с ролью CHEF
-     * @return сообщение
-     */
+     // Доступ имеют только user'ы с ролью CHEF
+     // @return сообщение
     @GetMapping("/chef")
     @PreAuthorize("hasRole('CHEF')")
     public String GetChefApi() {
         return "chef api: let's pretend you cooked something";
     }
 
-    /**
-     * Доступ имеют только user'ы с ролью ADMIN
-     * @return сообщение
-     */
+     // Доступ имеют только user'ы с ролью ADMIN
+     // @return сообщение
     @GetMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public String GetChefAdmin() {
