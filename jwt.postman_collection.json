@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "a8edf22b-9f38-44d0-bd6b-ffb94866c415",
+		"name": "jwt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27172206"
+	},
+	"item": [
+		{
+			"name": "sign_up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"vasya\",\r\n    \"email\": \"vasys@vvv.com\",\r\n    \"password\": \"1234\",\r\n    \"roles\": [\"admin\", \"chef\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign_in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"vasya\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/auth/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-info",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2YXN5YSIsImlhdCI6MTY4NTI4MDg0MywiZXhwIjoxNjg1MzY3MjQzfQ.Eoshm8l_q3hcQU0TEqXMLO6rOYbICYksvfyc6GVvl6E6cFjtsHsFH80GrLfj4ygsl8DiI5_r8YefjHlXNyveZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "vasya"
+				},
+				"url": {
+					"raw": "localhost:8080/api/test/info",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test-all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/test/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test-admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2YXN5YSIsImlhdCI6MTY4NTI4MDg0MywiZXhwIjoxNjg1MzY3MjQzfQ.Eoshm8l_q3hcQU0TEqXMLO6rOYbICYksvfyc6GVvl6E6cFjtsHsFH80GrLfj4ygsl8DiI5_r8YefjHlXNyveZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/test/admin",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test-chef",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2YXN5YSIsImlhdCI6MTY4NTI4MDg5MCwiZXhwIjoxNjg1MzY3MjkwfQ.5A_2JAxVCMf-pWao9oALEyLiWWRlPJKtgnBsbvYSrn0JCkRyCu-fh00cGn4trd8tZcIRUEkl-v9wvoWnh9XVDA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/test/chef",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"chef"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test-customer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2YXN5YSIsImlhdCI6MTY4NTI4MDg5MCwiZXhwIjoxNjg1MzY3MjkwfQ.5A_2JAxVCMf-pWao9oALEyLiWWRlPJKtgnBsbvYSrn0JCkRyCu-fh00cGn4trd8tZcIRUEkl-v9wvoWnh9XVDA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/test/customer",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"customer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
